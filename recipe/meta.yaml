@@ -1,5 +1,4 @@
-{% set version = '2.10-8' %}
-
+{% set version = "2.10-12" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,54 +7,51 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: LiblineaR_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/LiblineaR_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/LiblineaR/LiblineaR_{{ version }}.tar.gz
-
-  sha256: 0f81a93bb954d71fc65c6487da581423b7053722e97544fb1260c7c3d457d39f
+    - {{ cran_mirror }}/src/contrib/LiblineaR_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/LiblineaR/LiblineaR_{{ version }}.tar.gz
+  sha256: 3ae337909c552ae8880322f74dc90a5a32ec9b5e2012382be5d43db7e85cbd64
 
 build:
   merge_build_host: True  # [win]
-  number: 1004
-  skip: true  # [win32]
-
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
-    - {{ compiler('cxx') }}        # [unix]
-    - {{ compiler('m2w64_cxx') }}  # [win]
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
   host:
     - r-base
-
   run:
     - r-base
+    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
-    - $R -e "library('LiblineaR')"  # [not win]
+    - $R -e "library('LiblineaR')"           # [not win]
     - "\"%R%\" -e \"library('LiblineaR')\""  # [win]
 
 about:
   home: https://cran.r-project.org/web/packages/LiblineaR/index.html
-  license: GPL-2
+  license: GPL-2.0-only
   summary: A wrapper around the LIBLINEAR C/C++ library for machine learning.
   license_family: GPL2
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+
 extra:
-   recipe-maintainers:
+  recipe-maintainers:
     - conda-forge/r
-    - dpryan79
     - MathiasHaudgaard
     - FrodePedersen
     - ArneKr
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
