@@ -1,4 +1,4 @@
-{% set version = '2.10-8' %}
+{% set version = "2.10-12" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -13,11 +13,11 @@ source:
     - https://cran.r-project.org/src/contrib/LiblineaR_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/LiblineaR/LiblineaR_{{ version }}.tar.gz
 
-  sha256: 0f81a93bb954d71fc65c6487da581423b7053722e97544fb1260c7c3d457d39f
+  sha256: 3ae337909c552ae8880322f74dc90a5a32ec9b5e2012382be5d43db7e85cbd64
 
 build:
-  merge_build_host: True  # [win]
-  number: 1004
+  merge_build_host: true  # [win]
+  number: 0
   skip: true  # [win32]
 
   rpaths:
@@ -47,9 +47,9 @@ about:
   license: GPL-2
   summary: A wrapper around the LIBLINEAR C/C++ library for machine learning.
   license_family: GPL2
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 extra:
-   recipe-maintainers:
+  recipe-maintainers:
     - conda-forge/r
     - dpryan79
     - MathiasHaudgaard
