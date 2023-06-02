@@ -1,11 +1,22 @@
+About r-liblinear-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-liblinear-feedstock/blob/main/LICENSE.txt)
+
 About r-liblinear
-=================
+-----------------
 
 Home: https://cran.r-project.org/web/packages/LiblineaR/index.html
 
 Package license: GPL-2.0-only
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-liblinear-feedstock/blob/main/LICENSE.txt)
+Summary: A wrapper around the LIBLINEAR C/C++ library for machine learning.
+About r-liblinear
+-----------------
+
+Home: https://cran.r-project.org/web/packages/LiblineaR/index.html
+
+Package license: GPL-2.0-only
 
 Summary: A wrapper around the LIBLINEAR C/C++ library for machine learning.
 
@@ -52,6 +63,20 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1307&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-liblinear-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_r_base4.2" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_r_base4.1</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1307&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-liblinear-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_r_base4.1" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_r_base4.2</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1307&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-liblinear-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_r_base4.2" alt="variant">
                 </a>
               </td>
             </tr><tr>
