@@ -1,4 +1,4 @@
-{% set version = "2.10-24" %}
+{% set version = "2.10-25" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/LiblineaR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/LiblineaR/LiblineaR_{{ version }}.tar.gz
-  sha256: 3949a566f36e0c7578b9aa3584873b52c1b2058cdd7a1f7c87d5073f57f027c8
+  sha256: e696fec258c750fb80b6a8622cf08cadbad452bdd79936b2ef85f1cf5bc538a6
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
